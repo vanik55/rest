@@ -1,13 +1,13 @@
 package main
 
 import (
+	"database/sql"
+	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"rest/peoples"
-	_ "github.com/go-sql-driver/mysql"
-	"database/sql"
-	"fmt"
 )
 
 func main() {
@@ -20,6 +20,7 @@ func main() {
 		panic(err.Error())
 	}
 
+	//Comment
 	result, err := db.Query("SELECT * FROM employee LIMIT 5")
 	fmt.Println(result.Columns())
 
